@@ -1,10 +1,37 @@
 # IT2810: Prosjekt 4 - Filmdatabase App (iOS & Android)
 
 Dette er en mobilapplikasjon for å søke opp informasjon om filmer. Dataen er hentet fra [FEND16](https://github.com/FEND16/movie-json-data?fbclid=IwAR1x59Rv0NctGe8NrlnWahhZGjgEwLFy0ZiUm_mX6ghofQVg_FJUfim-QHM). Databasen for å håndtere filmene kjører på en virtuell maskin av NTNU.
-Prosjektet er laget ved en backend som kjøres med node.js, og en frontend med Expo, React Native og typescript. Prosjektet er en vidreføring av [Prosjekt 3](https://github.com/haakonjacobsen/FilmDB-Web).
+Prosjektet er laget ved en backend som kjøres med node.js, og en frontend med Expo, React Native og typescript. Prosjektet er en vidreføring av [Prosjekt 3](https://github.com/haakonjacobsen/FilmDB-Web) og utviklet av Haakon Jacobsen og Jan Ming Lam.
 
 <img src="./illustrarion//illustration1.PNG" width="230"><img src="./illustrarion//illustration2.PNG" width="230"><img src="./illustrarion//illustration3.PNG" width="230"><img src="./illustrarion//illustration4.PNG" width="230">
+## Applikasjonsbeskrivelse
 
+### Funksjonalitet og teknologi
+
+- Prototypen er laget ved React Native, og initialisert med `expo init`.
+- Vi bruker redux for state management.
+- Det er brukt typescript i hele prosjektet. I løsningen vår er det lagt opp til:
+  - Søkemulighet ved hjelp av input felt.
+  - Filtrerinsgmuligheter ved hjelp av slider, og sortering
+  - Dynamisk innlasting ved en knapp i bunnen av resultatlisten.
+  - Popup for å gi en mer detaljert beskrivelse av filmen
+- Merk at sortering og filtrering overlapper slik at filter vil innskrenke søkemulighetene. Setter du f.eks. minimumscoren til over 5 og søker etter "Fifty Shades", vil du ikke få noen resultater.
+
+### Bruk av tredjepartskomponenteter
+
+- Ettersom React Native ikke kan bruke de samme bibliotekene vi brukte i prosjekt 3, har vi stort sett valgt å bruke komponenter fra [react-native-elements biblioteket](https://reactnativeelements.com).
+- Dog hadde ikke React native elements noen gode løsninger på slidere med max og min verdi, så derfor hentet vi MultiSlider fra [ptomasros](https://github.com/ptomasroos/react-native-multi-slider).
+- For håndtering av forskjellige lokale ip adresser, har vi brukt [Constants](https://docs.expo.io/versions/latest/sdk/constants/) for hente brukerens lokale IP addresse for fetching. Dette gjør det mulig å hente data på mobil uten å måtte gå inn i koden og manuelt sette IP adresse.
+
+## Styling
+
+- Vi har valgt å lage stylesheets i bunnen av hver komponent da vi synes det er hensiktsmessig å samle styling og komponentkoden sammen da man gjerne jobber med begge deler samtidig.
+- Vi har også laget en egen mappe for styling. Her ligger styling som overlapper komponenter med ulikt design for iOS og android.
+
+## Testing
+
+Vi har gjennomført manuelle ende til ende tester, der vi har testet at applikasjonen fungerer som den skal ved ulike brukerinteraksjoner i ulik rekkefølge.
+Under har vi tenkt ut brukerhistorier som er relevante for en filmdatabase app.
 ## Endringer fra prosjekt 3
 - Vi har overført mye av koden fra prosjekt 3, der vi har benyttet oss av samme Redux oppsett og flere av komponentnavnene. Ettersom prosjektet vårt i prosjekt 3 filtrerte og sorterte noe på backend og noe på frontend, har vi i dette prosjektet valgt å forbedre backenden slik at den er ansvarlig for all innlastning av data. På den måten sikrer vi enda bedre dynamisk innlasting av data, i forhold til det som ble gjort i prosjekt 3.
 - Dette prosejktet har ikke fokus på brukergenerert data og innlogging og favoritfilmer er derfor ikke implementert.
@@ -63,35 +90,6 @@ Klikk [her](https://imgur.com/yDTEUHJ.gif) for å se hvordan du kan åpne applik
 
 - For å kjøre på android simulator kan du bruke [Android Studio emulator](https://docs.expo.io/workflow/android-studio-emulator/).
 - Pass på at emulatoren kjører før du trykker på "Run on Android device/emulator i metro bundleren.
-
-## Applikasjonsbeskrivelse
-
-### Funksjonalitet og teknologi
-
-- Per oppgavebeskrivelse er prototypen vår laget ved React Native, og initialisert med `expo init`.
-- Vi bruker redux for state management.
-- Det er brukt typescript i hele prosjektet. I løsningen vår er det lagt opp til:
-  - Søkemulighet ved hjelp av input felt.
-  - Filtrerinsgmuligheter ved hjelp av slider, og sortering
-  - Dynamisk innlasting ved en knapp i bunnen av resultatlisten.
-  - Popup for å gi en mer detaljert beskrivelse av filmen
-- Merk at sortering og filtrering overlapper slik at filter vil innskrenke søkemulighetene. Setter du f.eks. minimumscoren til over 5 og søker etter "Fifty Shades", vil du ikke få noen resultater.
-
-### Bruk av tredjepartskomponenteter
-
-- Ettersom React Native ikke kan bruke de samme bibliotekene vi brukte i prosjekt 3, har vi stort sett valgt å bruke komponenter fra [react-native-elements biblioteket](https://reactnativeelements.com).
-- Dog hadde ikke React native elements noen gode løsninger på slidere med max og min verdi, så derfor hentet vi MultiSlider fra [ptomasros](https://github.com/ptomasroos/react-native-multi-slider).
-- For håndtering av forskjellige lokale ip adresser, har vi brukt [Constants](https://docs.expo.io/versions/latest/sdk/constants/) for hente brukerens lokale IP addresse for fetching. Dette gjør det mulig å hente data på mobil uten å måtte gå inn i koden og manuelt sette IP adresse.
-
-## Styling
-
-- Vi har valgt å lage stylesheets i bunnen av hver komponent da vi synes det er hensiktsmessig å samle styling og komponentkoden sammen da man gjerne jobber med begge deler samtidig.
-- Vi har også laget en egen mappe for styling. Her ligger styling som overlapper komponenter med ulikt design for iOS og android.
-
-## Testing
-
-Vi har gjennomført manuelle ende til ende tester, der vi har testet at applikasjonen fungerer som den skal ved ulike brukerinteraksjoner i ulik rekkefølge.
-Under har vi tenkt ut brukerhistorier som er relevante for en filmdatabase app.
 
 ### Bruk av søkefeltet
 
