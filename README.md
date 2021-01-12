@@ -52,8 +52,7 @@ QR kode i terminal:
 
 ---
 
-Åpne applikasjon ved QR Scan
-<img src="https://imgur.com/yDTEUHJ.gif" width=250>
+Klikk [her] (https://imgur.com/yDTEUHJ.gif) for å se hvordan du kan åpne applikasjon ved QR Scan.
 
 ### Teste med iOS simulator
 
