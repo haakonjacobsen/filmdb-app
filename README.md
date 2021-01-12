@@ -1,7 +1,19 @@
-# IT2810 - Prosjekt 4
+# IT2810: Prosjekt 4 - Filmdatabase App (iOS & Android)
 
-For prosjekt 4 har vi valgt å gå for alternativ A, lage en React Native klient. Applikasjonen vår er en filmdatabase som inneholder informasjon om ulike filmer hentet fra [FEND16](https://github.com/FEND16/movie-json-data?fbclid=IwAR1x59Rv0NctGe8NrlnWahhZGjgEwLFy0ZiUm_mX6ghofQVg_FJUfim-QHM). Databasen for å håndtere filmene er hosted på en virtuell maskin av NTNU.
-Prosjektet er laget ved en backend som kjøres med node.js, og en frontend ved Expo og React Native. Det er lagt opp til vurdering ved å klone repoet med HTTPS.
+Dette er en mobilapplikasjon for å søke opp informasjon om filmer. Dataen er hentet fra [FEND16](https://github.com/FEND16/movie-json-data?fbclid=IwAR1x59Rv0NctGe8NrlnWahhZGjgEwLFy0ZiUm_mX6ghofQVg_FJUfim-QHM). Databasen for å håndtere filmene kjører på en virtuell maskin av NTNU.
+Prosjektet er laget ved en backend som kjøres med node.js, og en frontend med Expo, React Native og typescript. Prosjektet er en vidreføring av [Prosjekt 3](https://github.com/haakonjacobsen/FilmDB-Web).
+
+<img src="./illustrarion//illustration1.PNG" width="230"><img src="./illustrarion//illustration2.PNG" width="230"><img src="./illustrarion//illustration3.PNG" width="230"><img src="./illustrarion//illustration4.PNG" width="230">
+
+## Endringer fra prosjekt 3
+- Vi har overført mye av koden fra prosjekt 3, der vi har benyttet oss av samme Redux oppsett og flere av komponentnavnene. Ettersom prosjektet vårt i prosjekt 3 filtrerte og sorterte noe på backend og noe på frontend, har vi i dette prosjektet valgt å forbedre backenden slik at den er ansvarlig for all innlastning av data. På den måten sikrer vi enda bedre dynamisk innlasting av data, i forhold til det som ble gjort i prosjekt 3.
+- Dette prosejktet har ikke fokus på brukergenerert data og innlogging og favoritfilmer er derfor ikke implementert.
+- Ved mobilapplikasjoner er innlasting av data mer kritisk med tanke på begrensede datamanegder mange har i mobilabonementet sitt. Det betyr at applikasjonen burde laste inn det den trenger for en god brukeroplevselse, men ikke noe mer. For å unngå unødvendig innlasting av data har vi lagt opp til dynamisk innlasting med 20 filmer av gangen.
+- Vi har byttet ut pagiation oppsettet vårt fra prosjekt 3 med en knapp i bunnen av listevisningen som laster inn flere filmer. Dette ble gjort fordi vi synes det var et mer brukervennlig alternativ for mobil.
+- Valg av filtrering og sortering skjer i samme panel ved å trykke på "Filter & Sort" knappen som ligger under søkefeltet. Vi har også laget en knapp som bytter mellom å vise resultatet i stigende eller synkende rekkefølge. Dette illustres ved ikoner som endrer seg avhengig om det er tekst eller størrelse/lengde man sorterer etter.
+- Vi har også gjort en liten endring ved filtreringen, der vi isteden for å filtrere etter årstall, har valgt å filtrere etter filmens lengde.
+- Vi har også valgt gjort flere forbedringer i typing, og nå fjernet noen "any" typinger, ettersom dette ikke er god praksis for typescipt.  
+
 
 ### Setup:
 
@@ -71,16 +83,6 @@ QR kode i terminal:
 - Ettersom React Native ikke kan bruke de samme bibliotekene vi brukte i prosjekt 3, har vi stort sett valgt å bruke komponenter fra [react-native-elements biblioteket](https://reactnativeelements.com).
 - Dog hadde ikke React native elements noen gode løsninger på slidere med max og min verdi, så derfor hentet vi MultiSlider fra [ptomasros](https://github.com/ptomasroos/react-native-multi-slider).
 - For håndtering av forskjellige lokale ip adresser, har vi brukt [Constants](https://docs.expo.io/versions/latest/sdk/constants/) for hente brukerens lokale IP addresse for fetching. Dette gjør det mulig å hente data på mobil uten å måtte gå inn i koden og manuelt sette IP adresse.
-
-## Endringer fra prosjekt 3
-
-- Vi har overført mye av koden fra prosjekt 3, der vi har benyttet oss av samme Redux oppsett og flere av komponentnavnene. Ettersom prosjektet vårt i innlevering 3 filtrerte og sorterte noe på backend og noe på frontend, har vi i dette prosjektet valgt å forbedre backenden slik at den er ansvarlig for all innlastning av data. Dette gjorde vi for å bevise at vi har nådd læringsmålene for dynamisk innlasting av data fra prosjekt 3.
-- Ettersom vi i prosjekt 3 implementerte brukergenererte data har vi ikke fokusert på dette i prosjekt 4.
-- Ved mobilapplikasjoner er innlasting av data mer kritisk med tanke på begrensede datamanegder mange har i mobilabonementet sitt. Det betyr at applikasjonen burde laste inn det den trenger for en god brukeroplevselse, men ikke noe mer. For å unngå unødvendig innlasting av data har vi lagt opp til dynamisk innlasting med 20 filmer av gangen.
-- Vi har byttet ut pagiation oppsettet vårt fra prosjekt 3 med en knapp i bunnen av listevisningen som laster inn flere filmer. Dette ble gjort fordi vi synes det var et mer brukervennlig alternativ for mobil.
-- Valg av filtrering og sortering skjer i samme panel ved å trykke på "Filter & Sort" knappen som ligger under søkefeltet. Vi har også laget en knapp som bytter mellom å vise resultatet i stigende eller synkende rekkefølge. Dette illustres ved ikoner som endrer seg avhengig om det er tekst eller størrelse/lengde man sorterer etter.
-- Vi har også gjort en liten endring ved filtreringen, der vi isteden for å filtrere etter årstall, har valgt å filtrere etter filmens lengde.
-- Vi har også valgt å gjøre flere forbedringer i valg av type, da vi i prosjekt 3 hadde noe problemer med Movie typen som ble lastet inn fra databasen, og vi brukte da any noen få steder. Vi har nå fikset dette slik at Movie typen blir korrekt.
 
 ## Styling
 
