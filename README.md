@@ -31,7 +31,6 @@ Prosjektet er laget ved en backend som kjøres med node.js, og en frontend med E
 ## Testing
 
 Vi har gjennomført manuelle ende til ende tester, der vi har testet at applikasjonen fungerer som den skal ved ulike brukerinteraksjoner i ulik rekkefølge.
-Under har vi tenkt ut brukerhistorier som er relevante for en filmdatabase app.
 ## Endringer fra prosjekt 3
 - Vi har overført mye av koden fra prosjekt 3, der vi har benyttet oss av samme Redux oppsett og flere av komponentnavnene. Ettersom prosjektet vårt i prosjekt 3 filtrerte og sorterte noe på backend og noe på frontend, har vi i dette prosjektet valgt å forbedre backenden slik at den er ansvarlig for all innlastning av data. På den måten sikrer vi enda bedre dynamisk innlasting av data, i forhold til det som ble gjort i prosjekt 3.
 - Dette prosejktet har ikke fokus på brukergenerert data og innlogging og favoritfilmer er derfor ikke implementert.
